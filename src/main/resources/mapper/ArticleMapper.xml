@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 这里的 namespace 要和 ArticleMapper.java 接口的完整路径完全相同 -->
+<mapper namespace="org.example.tablemysql.mapper.ArticleMapper">
+
+    <!-- 对应接口中的 insert(Article article) 方法 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO article (title, author, content)
+        VALUES (#{title}, #{author}, #{content})
+    </insert>
+
+    <!-- 对应接口中的 selectPage() 方法 -->
+    <select id="selectPage" resultType="org.example.tablemysql.entity.Article">
+        SELECT id, title, author, content, create_time
+        FROM article
+        ORDER BY id DESC
+    </select>
+
+</mapper>
