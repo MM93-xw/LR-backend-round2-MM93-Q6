@@ -18,4 +18,9 @@
         ORDER BY id DESC
     </select>
 
+    <!-- 新增的 SQL -->
+    <select id="countByTitle" resultType="int">
+        SELECT COUNT(*) FROM article WHERE title = #{title}
+    </select>
+
 </mapper>

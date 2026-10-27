@@ -1,6 +1,7 @@
 package org.example.tablemysql.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.example.tablemysql.entity.Article;
 import java.util.List;
 
@@ -12,4 +13,7 @@ public interface ArticleMapper {
 
     // 查询所有数据（分页由插件拦截处理，这里不写 limit）
     List<Article> selectPage();
+
+    // 根据标题查询数量（用于 Service 层查重）
+    int countByTitle(@Param("title") String title);
 }
